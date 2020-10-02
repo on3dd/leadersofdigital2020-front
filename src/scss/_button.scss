@@ -1,0 +1,49 @@
+@import './colors.scss';
+
+@mixin button($padding: 0.3rem 1.5rem, $font-size: 1rem, $border-radius: 15px) {
+  padding: $padding;
+  color: var(--font-color);
+  font-size: $font-size;
+  font-weight: 600;
+  line-height: 1.5em;
+  border: none;
+  border-radius: $border-radius;
+  text-transform: uppercase;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.gray {
+    background-color: $gray;
+
+    &:hover {
+      background-color: darken($gray, 5%);
+    }
+  }
+
+  &.yellow {
+    color: $yellow !important;
+
+    &:hover {
+      background-color: darken($yellow, 5%);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: $gray;
+    background-color: #ffffff;
+
+    &:hover {
+      background-color: #ffffff;
+    }
+  }
+}

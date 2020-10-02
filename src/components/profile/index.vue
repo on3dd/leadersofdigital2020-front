@@ -13,34 +13,40 @@
 			<span class="profile__address">Кампус ДВФУ, Корпус 7.2</span>
 		</div>
 		<div class="profile__control">
-			<button class="profile__button">Изменить</button>
+			<Button class="profile__button">Изменить</Button>
 		</div>
 	</div>
 </template>
 
 <script>
 	import Icon from '@/components/base-ui/Icon';
+	import Button from '@/components/base-ui/Button';
 
 	export default {
 		name: 'ProfileComponent',
 		components: {
 			Icon,
+			Button,
 		},
 	};
 </script>
 
 <style scoped lang="scss">
+	@import '@/scss/_button.scss';
+
 	.profile {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		padding: 50px 42px;
+		height: 100%;
+		min-height: calc(100vh - 51px);
 	}
 
 	.profile__wrapper {
 		display: flex;
-		height: 292px;
-		width: 292px;
+		height: 252px;
+		width: 252px;
 	}
 
 	.profile__rating {
@@ -73,7 +79,8 @@
 	.profile__name {
 		margin: 0;
 		margin-bottom: 1rem;
-		font-size: 2.25rem;
+    font-size: 2.25rem;
+    font-weight: 800;
 		text-align: center;
 	}
 
@@ -86,5 +93,13 @@
 	.profile__address {
 		color: var(--font-color-secondary);
 		font-weight: 600;
+	}
+
+	.profile__control {
+		margin-top: auto;
+	}
+
+	.profile__button {
+		@include button(18px 85px, 1.125rem, 30px);
 	}
 </style>
