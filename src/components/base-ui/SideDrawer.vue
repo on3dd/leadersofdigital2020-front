@@ -21,7 +21,7 @@
 		},
 		mounted() {
 			document.addEventListener('click', (evt) => {
-				if (evt.target !== this.$refs.drawer) {
+				if (this.isVisible && evt.target !== this.$refs.drawer) {
 					this.$emit('close');
 				}
 			});

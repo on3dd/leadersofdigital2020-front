@@ -7,7 +7,10 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    redirect: '/home',
+  },
+  {
+    path: '/home',
     component: Home,
     children: [
       {
@@ -19,6 +22,12 @@ const routes = [
         name: 'Shops',
         component: () =>
           import(/* webpackChunkName: "shops" */ '../views/home/shops'),
+      },
+      {
+        path: 'products',
+        name: 'Products',
+        component: () =>
+          import(/* webpackChunkName: "products" */ '../views/home/products'),
       },
     ],
   },

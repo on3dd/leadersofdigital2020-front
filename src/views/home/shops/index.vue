@@ -1,12 +1,15 @@
 <template>
-	<div>
-		<span>shops</span>
-	</div>
+	<ShopsComponent />
 </template>
 
 <script>
+	import ShopsComponent from '@/components/home/shops';
+
 	export default {
 		name: 'Shops',
+		components: {
+			ShopsComponent,
+		},
 	};
 </script>
 
