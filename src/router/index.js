@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/home';
+import Profile from '../views/profile';
 
 Vue.use(VueRouter);
 
@@ -30,6 +31,11 @@ const routes = [
           import(/* webpackChunkName: "products" */ '../views/home/products'),
       },
     ],
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile,
   },
 ];
 

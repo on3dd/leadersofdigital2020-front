@@ -4,25 +4,23 @@
 			<Header :name="name" />
 		</head>
 		<main class="main">
-			<Navbar />
-
-			<router-view />
+			<ProfileComponent />
 		</main>
 	</div>
 </template>
 
 <script>
 	import Header from '@/components/base-ui/Header';
-	import Navbar from '@/components/home/Navbar.vue';
+	import ProfileComponent from '@/components/profile';
 
 	export default {
-		name: 'Home',
+		name: 'Profile',
 		components: {
 			Header,
-			Navbar,
+			ProfileComponent,
 		},
 		data: () => ({
-			name: 'Swifty',
+			name: 'Профиль',
 		}),
 	};
 </script>
