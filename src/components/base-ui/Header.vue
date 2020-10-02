@@ -48,7 +48,8 @@
 <style scoped lang="scss">
 	.header {
 		position: fixed;
-		width: 100%;
+    width: 100%;
+    z-index: 100;
 	}
 
 	.header__topbar {

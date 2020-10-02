@@ -8,6 +8,6 @@
   @import '@/scss/index.scss';
 
   #app {
-    min-height: 200vh;
+    min-height: 100vh;
   }
 </style>

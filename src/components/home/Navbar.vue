@@ -24,7 +24,7 @@
 
 <style scoped lang="scss">
 	.navbar {
-		display: block;
+    display: block;
 	}
 
 	.navbar__list {
