@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from '../views/home';
-import Profile from '../views/profile';
-import About from '../views/about';
-import Orders from '../views/orders';
-import Checkout from '../views/checkout';
+import Home from '@/views/home';
+import Profile from '@/views/profile';
+import About from '@/views/about';
+import Orders from '@/views/orders';
+import Checkout from '@/views/checkout';
+import Login from '@/views/login';
+import Register from '@/views/register';
 
 Vue.use(VueRouter);
 
@@ -77,6 +79,16 @@ const routes = [
     path: '/checkout',
     name: 'Checkout',
     component: Checkout,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
   },
 ];
 

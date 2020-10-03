@@ -1,0 +1,67 @@
+@import '@/scss/_button.scss';
+
+.auth {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 32px 28px;
+}
+
+.auth__form {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.auth__heading {
+  margin: 0;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.auth__field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 207px;
+  margin-bottom: 1.5rem;
+}
+
+.auth__label {
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.15px;
+}
+
+.auth__input {
+  width: 100%;
+}
+
+.auth__controls {
+  margin-top: auto;
+  width: 100%;
+}
+
+.auth__button {
+  @include button(18px 0 !important, 1.125rem !important, 30px !important);
+  width: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.auth__link {
+  color: inherit;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+}

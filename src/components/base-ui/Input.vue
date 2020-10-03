@@ -32,7 +32,9 @@
 	@import '@/scss/_input.scss';
 
 	.input {
-		@include input;
+    @include input;
+
 		text-align: center;
+		background-color: #ebebeb;
 	}
 </style>
