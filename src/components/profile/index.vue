@@ -35,12 +35,6 @@
 	@import '@/scss/_button.scss';
 
 	.profile {
-		/* display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 50px 34px;
-		height: 100%;
-		min-height: calc(100vh - 51px); */
 	}
 
 	.profile__wrapper {
@@ -79,8 +73,8 @@
 	.profile__name {
 		margin: 0;
 		margin-bottom: 1rem;
-    font-size: 2.25rem;
-    font-weight: 800;
+		font-size: 2.25rem;
+		font-weight: 800;
 		text-align: center;
 	}
 
@@ -96,12 +90,12 @@
 	}
 
 	.profile__control {
-    width: 100%;
+		width: 100%;
 		margin-top: auto;
 	}
 
 	.profile__button {
-    @include button(18px 0, 1.125rem, 30px);
-    width: 100%;
+		@include button(18px 0, 1.125rem, 30px);
+		width: 100%;
 	}
 </style>

@@ -8,7 +8,7 @@
 			</li>
 		</ul>
 
-		<h2 class="orders__section">Актуальные</h2>
+		<h2 class="orders__section">Предыдущие</h2>
 		<ul class="orders__list">
 			<li v-for="(item, idx) in previousOrders" :key="idx" class="orders__item">
 				<span class="orders__info">{{ item.name }}</span>

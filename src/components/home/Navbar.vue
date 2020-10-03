@@ -52,7 +52,7 @@
 		background-color: var(--secondary-color);
 		/* transition: all 0.1s ease-out; */
 
-		&.router-link-exact-active {
+		&.router-link-active {
 			color: var(--font-color);
 			background-color: var(--bg-color);
 		}

@@ -28,6 +28,20 @@ const routes = [
           import(/* webpackChunkName: "shops" */ '../views/home/shops'),
       },
       {
+        path: 'shops/:id',
+        name: 'Shops Id',
+        component: () =>
+          import(/* webpackChunkName: "shops" */ '../views/home/shops/id'),
+      },
+      {
+        path: 'shops/:id/:category',
+        name: 'Shops Id Category',
+        component: () =>
+          import(
+            /* webpackChunkName: "shops" */ '../views/home/shops/id/category'
+          ),
+      },
+      {
         path: 'products',
         name: 'Products',
         component: () =>

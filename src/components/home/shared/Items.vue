@@ -3,11 +3,6 @@
 		<template v-for="(item, idx) in items">
 			<div :key="idx" class="item">
 				<div class="item__content">
-					<!-- <img
-						src="https://lh3.googleusercontent.com/proxy/GhAqC3uDuonjtO7q48BJApkATIDC--X7DMjnB2_PPWQ3bh7dAOcL0hF5Rlgy4ItP9uVK8LA_ZqV3CUMUOg1lNQhGgoal3ooHA7ks4sjWRfXpAQ"
-						alt=""
-						class="item__image"
-					/> -->
 					<span class="item__text">{{ item.name }}</span>
 				</div>
 			</div>
