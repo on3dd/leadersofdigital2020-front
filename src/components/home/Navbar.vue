@@ -2,7 +2,12 @@
 	<nav class="navbar">
 		<ul class="navbar__list">
 			<li v-for="(item, idx) in links" :key="idx" class="navbar__item">
-				<router-link :to="item.to" class="navbar__link">
+				<router-link
+					:to="item.to"
+					:disabled="item.disabled"
+					:event="item.disabled ? null : 'click'"
+					class="navbar__link"
+				>
 					{{ item.name }}
 				</router-link>
 			</li>
@@ -16,7 +21,7 @@
 		data: () => ({
 			links: [
 				{ name: 'Магазины', to: '/home/shops' },
-				{ name: 'Товары', to: '/home/products' },
+				{ name: 'Товары', to: '/home/products', disabled: true },
 			],
 		}),
 	};
@@ -24,7 +29,7 @@
 
 <style scoped lang="scss">
 	.navbar {
-    display: block;
+		display: block;
 	}
 
 	.navbar__list {

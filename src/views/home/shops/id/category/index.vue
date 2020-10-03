@@ -6,7 +6,7 @@
 	import ShopsIdCategoryComponent from '@/components/home/shops/id/category';
 
 	export default {
-		name: 'Shops Category',
+		name: 'ShopsCategory',
 		components: {
 			ShopsIdCategoryComponent,
 		},

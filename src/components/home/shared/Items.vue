@@ -3,7 +3,9 @@
 		<template v-for="(item, idx) in items">
 			<div :key="idx" class="item">
 				<div class="item__content">
-					<span class="item__text">{{ item.name }}</span>
+					<router-link :to="item.link" class="item__link">
+						<span class="item__text">{{ item.name }}</span>
+					</router-link>
 				</div>
 			</div>
 		</template>
@@ -47,11 +49,20 @@
 	}
 
 	.item__content {
+		height: inherit;
+		width: inherit;
 		overflow: hidden;
 	}
 
+	.item__link {
+		height: inherit;
+		width: inherit;
+		color: inherit;
+		text-decoration: none;
+	}
+
 	.item__image {
-    width: 100%;
+		width: 100%;
 	}
 
 	.item__text {

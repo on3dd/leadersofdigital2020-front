@@ -3,14 +3,16 @@
 		<template v-for="(item, idx) in items">
 			<div :key="idx" class="good">
 				<div class="good__content">
-					<div class="good__preview">
-						<img :src="item.image" alt="" class="good__image" />
-					</div>
-					<span class="good__name">{{ item.name }}</span>
-					<span class="good__price">{{ item.price }}</span>
-					<div class="good__control">
-						<Button color=" yellow" class="good__button">В корзину</Button>
-					</div>
+					<router-link :to="item.link" class="good__link">
+						<div class="good__preview">
+							<img :src="item.image" alt="" class="good__image" />
+						</div>
+						<span class="good__name">{{ item.name }}</span>
+						<span class="good__price">{{ item.price }}</span>
+						<div class="good__control">
+							<Button color=" yellow" class="good__button">В корзину</Button>
+						</div>
+					</router-link>
 				</div>
 			</div>
 		</template>
@@ -61,17 +63,23 @@
 	}
 
 	.good__content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
 		width: 100%;
 		overflow: hidden;
 	}
 
+	.good__link {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 100%;
+		margin-bottom: 0.5rem;
+    /* overflow: hidden; */
+    color: inherit;
+    text-decoration: none;
+	}
+
 	.good__preview {
 		height: 127px;
-		margin-bottom: 0.5rem;
-		overflow: hidden;
 	}
 
 	.good__image {
@@ -84,13 +92,13 @@
 		font-weight: 800;
 		text-align: center;
 		text-transform: uppercase;
-  }
+	}
 
-  .good__price {
+	.good__price {
 		margin-bottom: 0.25rem;
-    font-size: 1.125rem;
-    font-weight: 800;
-  }
+		font-size: 1.125rem;
+		font-weight: 800;
+	}
 
 	.good__control {
 		width: 100%;
