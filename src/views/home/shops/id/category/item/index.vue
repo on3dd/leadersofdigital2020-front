@@ -6,7 +6,7 @@
 	import ShopsIdCategoryComponentItem from '@/components/home/shops/id/category/item';
 
 	export default {
-		name: 'Shops Item',
+		name: 'ShopsItem',
 		components: {
 			ShopsIdCategoryComponentItem,
 		},

@@ -6,7 +6,7 @@
 	import ShopsIdComponent from '@/components/home/shops/id';
 
 	export default {
-		name: 'Shops Id',
+		name: 'ShopsId',
 		components: {
 			ShopsIdComponent,
 		},
