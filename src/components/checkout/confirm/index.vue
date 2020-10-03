@@ -136,6 +136,7 @@
 	}
 
 	.confirm__sum {
+    font-size: 1.125rem;
 	}
 
 	.confirm__button {

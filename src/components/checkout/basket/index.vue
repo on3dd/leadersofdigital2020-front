@@ -141,5 +141,6 @@
 	}
 
 	.basket__sum {
+    font-size: 1.125rem;
 	}
 </style>
