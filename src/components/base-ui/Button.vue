@@ -20,11 +20,17 @@
 				required: false,
 				default: () => COLORS.gray,
 			},
+			flat: {
+				type: Boolean,
+				required: false,
+				default: false,
+			},
 		},
 		computed: {
 			classes() {
 				return {
 					button: true,
+					flat: this.flat,
 					[this.color]: this.color,
 				};
 			},

@@ -5,6 +5,7 @@ import Home from '../views/home';
 import Profile from '../views/profile';
 import About from '../views/about';
 import Orders from '../views/orders';
+import Checkout from '../views/checkout';
 
 Vue.use(VueRouter);
 
@@ -63,6 +64,11 @@ const routes = [
     path: '/orders',
     name: 'Orders',
     component: Orders,
+  },
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: Checkout,
   },
 ];
 

@@ -1,6 +1,6 @@
 @import './colors.scss';
 
-@mixin button($padding: 0.3rem 1.5rem, $font-size: 1rem, $border-radius: 15px) {
+@mixin input($padding: 0.3rem 1.5rem, $font-size: 1rem, $border-radius: 15px) {
   padding: $padding;
   color: var(--font-color);
   font-size: $font-size;
@@ -37,6 +37,8 @@
   }
 
   &.flat {
+    // height: 40px !important;
+    // width: 40px !important;
     padding: 5px;
     border-radius: 50%;
   }

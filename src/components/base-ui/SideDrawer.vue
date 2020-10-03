@@ -23,7 +23,7 @@
 		},
 		data: () => ({
 			links: [
-				{ to: '/profile', name: 'Профиль' },
+				{ to: '/profile/1', name: 'Профиль' },
 				{ to: '/orders', name: 'Заказы' },
 				{ to: '/about', name: 'О нас' },
 			],
