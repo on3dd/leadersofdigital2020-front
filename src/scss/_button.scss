@@ -38,17 +38,27 @@
 
   &.flat {
     padding: 5px;
-    border-radius: 50%;
+    border-radius: 100%;
+    background-color: var(--bg-color);
+    // overflow: hidden;
+
+    &.gray {
+      background-color: $gray;
+
+      &:hover {
+        background-color: darken($gray, 5%);
+      }
+    }
   }
 
   &:disabled {
-    opacity: 0.5;
     cursor: not-allowed;
     color: $gray;
-    background-color: #ffffff;
+    background-color: lighten($gray, 10%);
 
-    &:hover {
-      background-color: #ffffff;
+    &:hover,
+    &:focus {
+      background-color: lighten($gray, 10%);
     }
   }
 }

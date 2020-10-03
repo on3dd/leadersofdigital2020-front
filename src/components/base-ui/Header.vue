@@ -9,7 +9,9 @@
 			</div>
 			<div class="header__right">
 				<Icon name="search" class="header__icon" />
-				<Icon name="bucket" class="header__icon" />
+				<router-link to="/checkout" class="header__link">
+					<Icon name="bucket" class="header__icon" />
+				</router-link>
 			</div>
 		</div>
 		<div class="header__sidebar">
@@ -48,8 +50,8 @@
 <style scoped lang="scss">
 	.header {
 		position: fixed;
-    width: 100%;
-    z-index: 100;
+		width: 100%;
+		z-index: 100;
 	}
 
 	.header__topbar {
@@ -81,9 +83,16 @@
 		transform: translateX(-50%);
 	}
 
-	.header__icon {
+	.header__icon,
+	.header__link {
 		&:not(:first-child) {
 			margin-left: 0.5rem;
 		}
+	}
+
+	.header__link {
+		display: block;
+		color: inherit;
+		text-decoration: none;
 	}
 </style>

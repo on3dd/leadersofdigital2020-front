@@ -43,6 +43,14 @@ const routes = [
           ),
       },
       {
+        path: 'shops/:id/:category/:item',
+        name: 'Shops Id Category Item',
+        component: () =>
+          import(
+            /* webpackChunkName: "shops" */ '../views/home/shops/id/category/item'
+          ),
+      },
+      {
         path: 'products',
         name: 'Products',
         component: () =>
