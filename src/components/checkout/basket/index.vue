@@ -8,6 +8,7 @@
 					:name="item.name"
 					:price="item.price"
 					:image="item.image"
+					@change="(val) => (item.amount = val === 0 ? 1 : val)"
 				/>
 			</template>
 		</div>
@@ -141,6 +142,6 @@
 	}
 
 	.basket__sum {
-    font-size: 1.125rem;
+		font-size: 1.125rem;
 	}
 </style>

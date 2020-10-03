@@ -8,7 +8,7 @@
 			<h2 class="basket__price">{{ price }}</h2>
 		</div>
 		<div class="basket__controls">
-			<InputAmount :value="value" :small="true" />
+			<InputAmount :value="value" :small="true" @change="handleChange" />
 			<Icon name="cross" class="basket__remove" />
 		</div>
 	</div>
@@ -44,6 +44,11 @@
 			value: {
 				type: Number,
 				required: true,
+			},
+		},
+		methods: {
+			handleChange(val) {
+				this.$emit('change', val);
 			},
 		},
 	};

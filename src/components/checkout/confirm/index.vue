@@ -46,7 +46,7 @@
 
 		<div class="confirm__section">
 			<h2 class="confirm__heading">Стоимость доставки</h2>
-			<InputRange :v-model="amount" />
+			<InputRange v-model="amount" />
 		</div>
 
 		<div class="confirm__divider" />
@@ -76,8 +76,19 @@
 		data: () => ({
 			payment: 'cash',
 			address: 'current',
-			amount: 100,
+			value: 100,
 		}),
+		computed: {
+			amount: {
+				get() {
+					return this.value;
+				},
+
+				set(val) {
+					this.value = val > 0 ? val : 0;
+				},
+			},
+		},
 	};
 </script>
 
@@ -136,7 +147,7 @@
 	}
 
 	.confirm__sum {
-    font-size: 1.125rem;
+		font-size: 1.125rem;
 	}
 
 	.confirm__button {

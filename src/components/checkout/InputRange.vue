@@ -1,18 +1,43 @@
 <template>
 	<div class="range__wrapper">
-		<Button color="yellow" :flat="true" class="range__control range__button">
+		<Button
+			color="yellow"
+			:flat="true"
+			class="range__control range__button"
+			@click="handleClick(-50)"
+		>
 			-50
 		</Button>
-		<Button color="gray" :flat="true" class="range__control range__button">
+		<Button
+			color="gray"
+			:flat="true"
+			class="range__control range__button"
+			@click="handleClick(-10)"
+		>
 			-10
 		</Button>
 
-		<Input v-model="value" type="number" class="range__control range__input" />
+		<Input
+			:value="value"
+			type="number"
+			class="range__control range__input"
+			@input="handleInput"
+		/>
 
-		<Button color="gray" :flat="true" class="range__control range__button">
+		<Button
+			color="gray"
+			:flat="true"
+			class="range__control range__button"
+			@click="handleClick(+10)"
+		>
 			+10
 		</Button>
-		<Button color="yellow" :flat="true" class="range__control range__button">
+		<Button
+			color="yellow"
+			:flat="true"
+			class="range__control range__button"
+			@click="handleClick(+50)"
+		>
 			+50
 		</Button>
 	</div>
@@ -40,6 +65,10 @@
 			},
 		},
 		methods: {
+			handleClick(value) {
+				this.$emit('input', this.value + value);
+			},
+
 			handleInput(value) {
 				this.$emit('input', value);
 			},
