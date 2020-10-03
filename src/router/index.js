@@ -1,7 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+
 import Home from '../views/home';
 import Profile from '../views/profile';
+import About from '../views/about';
+import Orders from '../views/orders';
 
 Vue.use(VueRouter);
 
@@ -33,9 +36,19 @@ const routes = [
     ],
   },
   {
-    path: '/profile',
+    path: '/profile/:id',
     name: 'Profile',
     component: Profile,
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About,
+  },
+  {
+    path: '/orders',
+    name: 'Orders',
+    component: Orders,
   },
 ];
 

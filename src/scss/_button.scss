@@ -29,7 +29,7 @@
   }
 
   &.yellow {
-    color: $yellow !important;
+    background-color: $yellow !important;
 
     &:hover {
       background-color: darken($yellow, 5%);
