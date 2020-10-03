@@ -5,7 +5,7 @@
 			<div class="auth__field">
 				<label for="phone" class="auth__label">Номер телефона</label>
 				<Input
-					:value="phone"
+					v-model="phone"
 					type="tel"
 					color="gray"
 					id="phone"
@@ -16,7 +16,7 @@
 			<div class="auth__field">
 				<label for="password" class="auth__label">Пароль</label>
 				<Input
-					:value="password"
+					v-model="password"
 					color="gray"
 					type="password"
 					id="password"
@@ -25,12 +25,14 @@
 			</div>
 
 			<div class="auth__field">
-				<a href="" class="auth__link">Уже с нами?</a>
+				<router-link to="/login" class="auth__link">Уже с нами?</router-link>
 			</div>
 		</form>
 
 		<div class="auth__controls">
-			<Button color="yellow" class="auth__button">Войти</Button>
+			<Button color="yellow" class="auth__button" @click="register">
+				Зарегистрироваться
+			</Button>
 		</div>
 	</div>
 </template>
@@ -51,6 +53,26 @@
 			phone: '',
 			password: '',
 		}),
+		computed: {
+			phoneComputed: {
+				get() {
+					return this.phone;
+				},
+
+				set(val) {
+					this.phone = val;
+				},
+			},
+			passwordComputed: {
+				get() {
+					return this.password;
+				},
+
+				set(val) {
+					this.password = val;
+				},
+			},
+		},
 		methods: {
 			...mapActions({ registerAction: 'register' }),
 

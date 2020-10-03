@@ -5,7 +5,7 @@
 			<div class="auth__field">
 				<label for="phone" class="auth__label">Номер телефона</label>
 				<Input
-					:value="phone"
+					v-model="phoneComputed"
 					type="tel"
 					color="gray"
 					id="phone"
@@ -16,7 +16,7 @@
 			<div class="auth__field">
 				<label for="password" class="auth__label">Пароль</label>
 				<Input
-					:value="password"
+					v-model="passwordComputed"
 					color="gray"
 					type="password"
 					id="password"
@@ -30,8 +30,11 @@
 		</form>
 
 		<div class="auth__controls">
-			<Button color="gray" class="auth__button">Зарегестрироваться</Button>
-			<Button color="yellow" class="auth__button">Зарегестрироваться</Button>
+			<Button color="gray" class="auth__button" @click="redirectToRegister">
+				Зарегестрироваться
+			</Button>
+
+			<Button color="yellow" class="auth__button" @click="login">Войти</Button>
 		</div>
 	</div>
 </template>
@@ -51,7 +54,28 @@
 		data: () => ({
 			phone: '',
 			password: '',
-		}),
+    }),
+    computed: {
+      phoneComputed: {
+        get() {
+          return this.phone;
+        },
+
+        set(val) {
+          console.log(val);
+          this.phone = val;
+        }
+      },
+      passwordComputed: {
+        get() {
+          return this.password;
+        },
+
+        set(val) {
+          this.password = val;
+        }
+      }
+    },
 		methods: {
 			...mapActions({ loginAction: 'login' }),
 
@@ -65,6 +89,10 @@
 				} catch (err) {
 					console.error(err);
 				}
+			},
+
+			async redirectToRegister() {
+				await this.$router.push('/register');
 			},
 		},
 	};

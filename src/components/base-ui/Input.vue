@@ -21,8 +21,8 @@
 			},
 		},
 		methods: {
-			handleInput(value) {
-				this.$emit('input', value);
+			handleInput(evt) {
+				this.$emit('input', evt.target.value);
 			},
 		},
 	};
@@ -32,7 +32,7 @@
 	@import '@/scss/_input.scss';
 
 	.input {
-    @include input;
+		@include input;
 
 		text-align: center;
 		background-color: #ebebeb;
