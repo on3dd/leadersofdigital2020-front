@@ -3,7 +3,7 @@
 		<template v-for="(item, idx) in items">
 			<div :key="idx" class="item">
 				<div class="item__content">
-					<router-link :to="item.link" class="item__link">
+					<router-link :to="route(item.id)" class="item__link">
 						<span class="item__text">{{ item.name }}</span>
 					</router-link>
 				</div>
@@ -19,6 +19,11 @@
 			items: {
 				type: Array,
 				required: true,
+			},
+		},
+		methods: {
+			route(id) {
+				return `${this.$router.currentRoute.path}/${id}`;
 			},
 		},
 	};
@@ -55,6 +60,8 @@
 	}
 
 	.item__link {
+		display: flex;
+		justify-content: center;
 		height: inherit;
 		width: inherit;
 		color: inherit;
@@ -66,6 +73,7 @@
 	}
 
 	.item__text {
+		text-align: center;
 		text-transform: uppercase;
 	}
 </style>

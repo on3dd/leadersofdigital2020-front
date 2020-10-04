@@ -1,33 +1,33 @@
 <template>
-	<div class="shops-id">
-		<Items :items="categories" />
+	<div class="shops-category">
+		<Goods :items="products" />
 	</div>
 </template>
 
 <script>
 	import { mapActions, mapGetters } from 'vuex';
-	import Items from '@/components/home/shared/Items';
+	import Goods from '@/components/home/shared/Goods';
 
 	export default {
-		name: 'ShopsIdComponent',
+		name: 'ProductsCategoryComponent',
 		components: {
-			Items,
+			Goods,
 		},
 		data: () => ({}),
 		computed: {
-			...mapGetters(['categories']),
+			...mapGetters(['products']),
 		},
 		methods: {
-			...mapActions(['fetchCategories']),
+			...mapActions(['fetchProducts']),
 		},
 		async mounted() {
-			await this.fetchCategories();
+			await this.fetchProducts();
 		},
 	};
 </script>
 
 <style scoped lang="scss">
-	.shops-id {
+	.shops-category {
 		display: flex;
 		flex-direction: column;
 		width: 100%;

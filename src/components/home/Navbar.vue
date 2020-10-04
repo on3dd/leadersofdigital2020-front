@@ -21,7 +21,7 @@
 		data: () => ({
 			links: [
 				{ name: 'Магазины', to: '/home/shops' },
-				{ name: 'Товары', to: '/home/products', disabled: true },
+				{ name: 'Товары', to: '/home/products' },
 			],
 		}),
 	};

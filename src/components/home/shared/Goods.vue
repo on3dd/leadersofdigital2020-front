@@ -3,16 +3,16 @@
 		<template v-for="(item, idx) in items">
 			<div :key="idx" class="good">
 				<div class="good__content">
-					<router-link :to="item.link" class="good__link">
+					<router-link :to="route(item.id)" class="good__link">
 						<div class="good__preview">
-							<img :src="item.image" alt="" class="good__image" />
+							<img :src="item.image" alt="Item img" class="good__image" />
 						</div>
 						<span class="good__name">{{ item.name }}</span>
 						<span class="good__price">{{ item.price }}</span>
-						<div class="good__control">
-							<Button color=" yellow" class="good__button">В корзину</Button>
-						</div>
 					</router-link>
+					<div class="good__control">
+						<Button color=" yellow" class="good__button">В корзину</Button>
+					</div>
 				</div>
 			</div>
 		</template>
@@ -31,6 +31,11 @@
 			items: {
 				type: Array,
 				required: true,
+			},
+		},
+		methods: {
+			route(id) {
+				return `${this.$router.currentRoute.path}/${id}`;
 			},
 		},
 	};
@@ -73,9 +78,9 @@
 		align-items: center;
 		height: 100%;
 		margin-bottom: 0.5rem;
-    /* overflow: hidden; */
-    color: inherit;
-    text-decoration: none;
+		/* overflow: hidden; */
+		color: inherit;
+		text-decoration: none;
 	}
 
 	.good__preview {

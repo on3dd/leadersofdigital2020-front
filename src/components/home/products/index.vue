@@ -1,10 +1,11 @@
 <template>
 	<div class="products">
-		<Items :items="items" />
+		<Items :items="categories" />
 	</div>
 </template>
 
 <script>
+	import { mapActions, mapGetters } from 'vuex';
 	import Items from '@/components/home/shared/Items';
 
 	export default {
@@ -12,20 +13,16 @@
 		components: {
 			Items,
 		},
-		data: () => ({
-			items: [
-				{ id: 1, name: 'product 1' },
-				{ id: 2, name: 'product 2' },
-				{ id: 3, name: 'product 3' },
-				{ id: 4, name: 'product 4' },
-				{ id: 5, name: 'product 5' },
-				{ id: 6, name: 'product 6' },
-				{ id: 7, name: 'product 7' },
-				{ id: 8, name: 'product 8' },
-				{ id: 9, name: 'product 9' },
-				{ id: 10, name: 'product 10' },
-			],
-		}),
+		data: () => ({}),
+		computed: {
+			...mapGetters(['categories']),
+		},
+		methods: {
+			...mapActions(['fetchCategories']),
+		},
+		async mounted() {
+			await this.fetchCategories();
+		},
 	};
 </script>
 

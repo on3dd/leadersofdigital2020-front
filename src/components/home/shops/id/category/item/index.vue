@@ -2,17 +2,18 @@
 	<div class="item">
 		<div class="item__wrapper">
 			<img
-				src="https://tomahawk.in.ua/image/cache/catalog/sneki/377508-500x700.png"
+				v-if="item.image"
+				:src="item.image"
 				alt="Item image"
 				class="item__image"
 			/>
 		</div>
 		<div class="item__info">
-			<h1 class="item__name">Чипсы "Лейс" (краб)</h1>
+			<h1 class="item__name">{{ item.name }}</h1>
 			<p class="item__description">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse,
-				exercitationem?
+				{{ item.description }}
 			</p>
+			<span class="item__price">{{ item.price || 'Не доступен' }}</span>
 		</div>
 		<div class="item__amount">
 			<InputAmount v-model="amount" />
@@ -24,6 +25,7 @@
 </template>
 
 <script>
+	import { mapActions, mapGetters } from 'vuex';
 	import Button from '@/components/base-ui/Button';
 	import InputAmount from '@/components/base-ui/InputAmount';
 
@@ -36,6 +38,15 @@
 		data: () => ({
 			amount: 1,
 		}),
+		computed: {
+			...mapGetters(['item']),
+		},
+		methods: {
+			...mapActions(['fetchItem']),
+		},
+		async mounted() {
+			await this.fetchItem();
+		},
 	};
 </script>
 
@@ -52,6 +63,7 @@
 
 	.item__wrapper {
 		width: 100%;
+		min-height: 200px;
 	}
 
 	.item__image {
@@ -75,6 +87,11 @@
 		margin: 0;
 		padding: 0;
 		text-transform: uppercase;
+	}
+
+	.item__price {
+		font-size: 1.5rem;
+		font-weight: 800;
 	}
 
 	.item__amount {
