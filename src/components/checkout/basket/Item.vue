@@ -1,11 +1,11 @@
 <template>
 	<div class="basket__item">
 		<div class="basket__wrapper">
-			<img :src="image" alt="Item image" class="basket__image" />
+			<img :src="item.image" alt="Item image" class="basket__image" />
 		</div>
 		<div class="basket__info">
-			<h3 class="basket__name">{{ name }}</h3>
-			<h2 class="basket__price">{{ price }}</h2>
+			<h3 class="basket__name">{{ item.name }}</h3>
+			<h2 class="basket__price">{{ item.price }}</h2>
 		</div>
 		<div class="basket__controls">
 			<InputAmount :value="value" :small="true" @change="handleChange" />
@@ -30,15 +30,7 @@
 		},
 		props: {
 			name: {
-				type: String,
-				required: true,
-			},
-			price: {
-				type: String,
-				required: true,
-			},
-			image: {
-				type: String,
+				type: Object,
 				required: true,
 			},
 			value: {

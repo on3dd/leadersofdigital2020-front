@@ -21,6 +21,7 @@
 			...mapActions(['fetchCategories']),
 		},
 		async mounted() {
+      console.log('fetching categories');
 			await this.fetchCategories();
 		},
 	};

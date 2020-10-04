@@ -21,6 +21,7 @@
 			...mapActions(['fetchShops']),
 		},
 		async mounted() {
+      console.log('fetching shops');
 			await this.fetchShops();
 		},
 	};

@@ -1,13 +1,11 @@
 <template>
 	<div class="basket container">
 		<div class="backet__container">
-			<template v-for="(item, idx) in items">
+			<template v-for="(item, idx) in checkout">
 				<BasketItem
 					:key="idx"
 					v-model="item.amount"
-					:name="item.name"
-					:price="item.price"
-					:image="item.image"
+					:item="item"
 					@change="(val) => (item.amount = val === 0 ? 1 : val)"
 				/>
 			</template>
@@ -33,6 +31,7 @@
 </template>
 
 <script>
+	import { mapActions, mapGetters } from 'vuex';
 	import Button from '@/components/base-ui/Button';
 	import BasketItem from '@/components/checkout/basket/Item';
 
@@ -44,45 +43,13 @@
 		},
 		data: () => ({
 			amount: 1,
-			items: [
-				{
-					name: 'Чипсы "Лейс" (краб)',
-					price: '156 р.',
-					image:
-						'https://tomahawk.in.ua/image/cache/catalog/sneki/377508-500x700.png',
-					amount: 1,
-				},
-				{
-					name: 'Чипсы "Лейс" (краб)',
-					price: '156 р.',
-					image:
-						'https://tomahawk.in.ua/image/cache/catalog/sneki/377508-500x700.png',
-					amount: 1,
-				},
-				{
-					name: 'Чипсы "Лейс" (краб)',
-					price: '156 р.',
-					image:
-						'https://tomahawk.in.ua/image/cache/catalog/sneki/377508-500x700.png',
-					amount: 1,
-				},
-				{
-					name: 'Чипсы "Лейс" (краб)',
-					price: '156 р.',
-					image:
-						'https://tomahawk.in.ua/image/cache/catalog/sneki/377508-500x700.png',
-					amount: 1,
-				},
-				{
-					name: 'Чипсы "Лейс" (краб)',
-					price: '156 р.',
-					image:
-						'https://tomahawk.in.ua/image/cache/catalog/sneki/377508-500x700.png',
-					amount: 1,
-				},
-			],
-		}),
+    }),
+    computed: {
+      ...mapGetters(['checkout']),
+    },
 		methods: {
+      ...mapActions(['removeItem']),
+
 			handleClick(evt) {
 				this.$emit('click', evt);
 			},

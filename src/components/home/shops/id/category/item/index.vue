@@ -19,7 +19,9 @@
 			<InputAmount v-model="amount" />
 		</div>
 		<div class="item__control">
-			<Button color="yellow" class="item__button">В корзину</Button>
+			<Button color="yellow" class="item__button" @click="handleClick">
+				В корзину
+			</Button>
 		</div>
 	</div>
 </template>
@@ -39,13 +41,21 @@
 			amount: 1,
 		}),
 		computed: {
-			...mapGetters(['item']),
+			...mapGetters({ item: 'product' }),
 		},
 		methods: {
-			...mapActions(['fetchItem']),
+			...mapActions(['fetchProduct', 'addItem']),
+
+			handleClick() {
+				console.log('id', this.item.id);
+				this.addItem(this.item.id);
+			},
 		},
 		async mounted() {
-			await this.fetchItem();
+			const id = this.$route.params.item;
+			console.log('fetching product');
+
+			await this.fetchProduct(id);
 		},
 	};
 </script>
@@ -59,6 +69,7 @@
 		width: 100%;
 		margin: 30px 0;
 		padding: 0 30px;
+		min-height: calc(100vh - 51px - 61px - 60px);
 	}
 
 	.item__wrapper {
