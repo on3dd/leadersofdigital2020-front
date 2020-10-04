@@ -2,12 +2,7 @@
 	<div class="basket container">
 		<div class="backet__container">
 			<template v-for="(item, idx) in checkout">
-				<BasketItem
-					:key="idx"
-					v-model="item.amount"
-					:item="item"
-					@change="(val) => (item.amount = val === 0 ? 1 : val)"
-				/>
+				<BasketItem :key="idx" :item="item" />
 			</template>
 		</div>
 
@@ -16,7 +11,7 @@
 		<div class="basket__controls">
 			<div class="basket__total">
 				<h3 class="basket__res">Итого:</h3>
-				<span class="basket__sum">1488 р.</span>
+				<span class="basket__sum">{{ sum }} р.</span>
 			</div>
 
 			<Button color="gray" :disabled="true" class="basket__button">
@@ -42,16 +37,16 @@
 			BasketItem,
 		},
 		data: () => ({
-			amount: 1,
-    }),
-    computed: {
-      ...mapGetters(['checkout']),
-    },
+			// amount: 1,
+		}),
+		computed: {
+			...mapGetters(['checkout', 'sum']),
+		},
 		methods: {
-      ...mapActions(['removeItem']),
+			...mapActions(['removeItem']),
 
-			handleClick(evt) {
-				this.$emit('click', evt);
+			handleClick() {
+				this.$emit('toggle');
 			},
 		},
 	};

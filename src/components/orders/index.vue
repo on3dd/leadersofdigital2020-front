@@ -2,7 +2,7 @@
 	<div class="orders screen">
 		<h2 class="orders__section">Актуальные</h2>
 		<ul class="orders__list">
-			<li v-for="(item, idx) in currenctOrders" :key="idx" class="orders__item">
+			<li v-for="(item, idx) in currentOrders" :key="idx" class="orders__item">
 				<span class="orders__info">{{ item.name }}</span>
 				<Button color="yellow" class="orders__button">Узнать статус</Button>
 			</li>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-	// import Icon from '@/components/base-ui/Icon';
+	import { mapGetters } from 'vuex';
 	import Button from '@/components/base-ui/Button';
 
 	export default {
@@ -28,18 +28,10 @@
 			// Icon,
 			Button,
 		},
-		data: () => ({
-			currenctOrders: [
-				{ name: 'Заказ №6 (1488р.)' },
-				{ name: 'Заказ №5 (1600р.)' },
-			],
-			previousOrders: [
-				{ name: 'Заказ №4 (1240р.)' },
-				{ name: 'Заказ №3 (1135р.)' },
-				{ name: 'Заказ №2 (1900р.)' },
-				{ name: 'Заказ №1 (940р.)' },
-			],
-		}),
+		data: () => ({}),
+		computed: {
+			...mapGetters(['currentOrders', 'previousOrders']),
+		},
 	};
 </script>
 

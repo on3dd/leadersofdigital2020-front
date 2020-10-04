@@ -54,14 +54,18 @@
 		<div class="confirm__control">
 			<div class="confirm__total">
 				<h3 class="confirm__res">Итого:</h3>
-				<span class="confirm__sum">1488 р.</span>
+				<span class="confirm__sum">{{ result }} р.</span>
 			</div>
-			<Button color="yellow" class="confirm__button">Продолжить</Button>
+
+			<Button color="yellow" class="confirm__button" @click="handleClick">
+				Продолжить
+			</Button>
 		</div>
 	</div>
 </template>
 
 <script>
+	import { mapGetters, mapActions } from 'vuex';
 	import Button from '@/components/base-ui/Button';
 	import InputRadio from '@/components/base-ui/InputRadio';
 	import InputRange from '@/components/checkout/InputRange';
@@ -79,6 +83,8 @@
 			value: 100,
 		}),
 		computed: {
+			...mapGetters(['sum']),
+
 			amount: {
 				get() {
 					return this.value;
@@ -87,6 +93,19 @@
 				set(val) {
 					this.value = val > 0 ? val : 0;
 				},
+			},
+
+			result() {
+				return parseFloat(this.sum) + parseFloat(this.amount);
+			},
+		},
+		methods: {
+			...mapActions(['createOrder', 'clearCheckout']),
+
+			async handleClick() {
+				await this.createOrder(this.result);
+				await this.clearCheckout();
+				await this.$router.push('/orders');
 			},
 		},
 	};

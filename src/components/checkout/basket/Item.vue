@@ -8,7 +8,7 @@
 			<h2 class="basket__price">{{ item.price }}</h2>
 		</div>
 		<div class="basket__controls">
-			<InputAmount :value="value" :small="true" @change="handleChange" />
+			<InputAmount :value="item.amount" :small="true" @change="handleChange" />
 			<Icon name="cross" class="basket__remove" />
 		</div>
 	</div>
@@ -24,23 +24,15 @@
 			Icon,
 			InputAmount,
 		},
-		model: {
-			prop: 'value',
-			event: 'change',
-		},
 		props: {
-			name: {
+			item: {
 				type: Object,
-				required: true,
-			},
-			value: {
-				type: Number,
 				required: true,
 			},
 		},
 		methods: {
 			handleChange(val) {
-				this.$emit('change', val);
+				this.item.amount = val === 0 ? 1 : val;
 			},
 		},
 	};
@@ -61,8 +53,9 @@
 		height: 53px;
 		width: 53px;
 		flex: 0 0 53px;
-		margin-right: 0.75rem;
-	}
+    margin-right: 0.75rem;
+    overflow: hidden;
+  }
 
 	.basket__image {
 		height: 100%;

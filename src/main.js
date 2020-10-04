@@ -1,7 +1,11 @@
 import Vue from 'vue';
+import { sync } from 'vuex-router-sync';
+
 import App from './App.vue';
 import router from './router';
 import store from './store';
+
+const unsync = sync(store, router); // done. Returns an unsync callback fn
 
 import axios from 'axios';
 Vue.prototype.$http = axios.create({
@@ -21,3 +25,5 @@ new Vue({
   store,
   render: h => h(App),
 }).$mount('#app');
+
+unsync();

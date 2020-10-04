@@ -11,7 +11,13 @@
 						<span class="good__price">{{ item.price }}</span>
 					</router-link>
 					<div class="good__control">
-						<Button color=" yellow" class="good__button">В корзину</Button>
+						<Button
+							color=" yellow"
+							class="good__button"
+							@click="handleClick(item.id)"
+						>
+							В корзину
+						</Button>
 					</div>
 				</div>
 			</div>
@@ -20,6 +26,7 @@
 </template>
 
 <script>
+	import { mapActions } from 'vuex';
 	import Button from '@/components/base-ui/Button';
 
 	export default {
@@ -34,6 +41,12 @@
 			},
 		},
 		methods: {
+			...mapActions(['addItem']),
+
+			handleClick(id) {
+				this.addItem(id);
+			},
+
 			route(id) {
 				return `${this.$router.currentRoute.path}/${id}`;
 			},

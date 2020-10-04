@@ -1,7 +1,7 @@
 <template>
 	<div class="checkout screen">
-		<Basket v-if="confirmed === false" @click="handleClick" />
-		<Confirm v-else />
+		<Basket v-if="confirmed === false" @toggle="toggleConfirmed" />
+		<Confirm v-else @toggle="toggleConfirmed" />
 	</div>
 </template>
 
@@ -19,7 +19,7 @@
 			confirmed: false,
 		}),
 		methods: {
-			handleClick() {
+			toggleConfirmed() {
 				this.confirmed = !this.confirmed;
 			},
 		},
